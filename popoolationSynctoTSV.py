@@ -15,8 +15,8 @@ def get_args():
     parser.add_argument("syncfile",help="sync file from Popoolation2")
     parser.add_argument("--bed",help="bed file specifying regions to remove from analysis")
     parser.add_argument("--min-count",default=5,type=int,help="minimum count of alternate allele. default= 5")
-    parser.add_argument("--min-coverage",default=30,type=int,help="minimum coverage (across all samples) for SNP to be \
-        called. default= 30")
+    parser.add_argument("--min-coverage",default=20,type=int,help="minimum coverage (across all samples) for SNP to be \
+        called. default= 20")
     parser.add_argument("--min-freq",default=5,type=int,help="minimum variant frequency to be considered - any variant \
         below this frequency will be changed to zero. default= 5%%")
     parser.add_argument("--output",default="popoolation_sync.tsv",help="Filename to write output to. default= 'popoolation_sync.tsv'")

@@ -9,8 +9,7 @@ import numpy as np
 #####
 # This script takes in bams from pool-seq, subsamples to minimize effects of
 # differential coverage and calculates genome wide population statistics (pi and Tajima's D) using Popoolation.
-# Note: paths to Popoolation and Samtools scripts and target coverage for subsampling are hard coded
-# to change these the script will need to be changed.
+# Note: paths to Popoolation and Samtools scripts and target coverage for subsampling are hard coded.
 #####
 
 # check for command line arguments
@@ -30,11 +29,11 @@ def popStats(bam,resultDict):
         subprocess.call(["/opt/PepPrograms/samtools-1.11/samtools","mpileup","-B","-f",\
             "/opt/data/mtuberculosis/MtbNCBIH37Rv.fa",bam],stdout=out)
     
-    # subsample pileup file 10X
+    # subsample pileup file 10X - repeat 9 times
     pi = []
     theta = []
     tajimasd = []
-    for x in range(1,2):
+    for x in range(1,11):
         print("subsample #"+str(x)+" of "+pilefile+" ...")
         subfile = bam.split(".")[0]+"_subsampled_"+str(x)+".pileup"
         subprocess.call(["perl","/opt/PepPrograms/popoolation_1.2.2/basic-pipeline/subsample-pileup.pl",\
